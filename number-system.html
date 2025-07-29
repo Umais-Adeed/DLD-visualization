@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Logic Design: Number Systems - Interactive Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .font-mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; }
+        .list-decimal { list-style-type: decimal; }
+        .list-inside { list-style-position: inside; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                Digital Logic Design: Number Systems
+            </h1>
+            <p class="text-lg text-gray-600">
+                Interactive Learning Platform
+            </p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="bg-white rounded-lg shadow-lg p-2 mb-6">
+            <div class="grid grid-cols-6 gap-2">
+                <button onclick="switchTab('introduction')" class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors bg-blue-500 text-white" data-tab="introduction">
+                    Introduction
+                </button>
+                <button onclick="switchTab('conversion')" class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100" data-tab="conversion">
+                    Base Conversion
+                </button>
+                <button onclick="switchTab('arithmetic')" class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100" data-tab="arithmetic">
+                    Arithmetic
+                </button>
+                <button onclick="switchTab('complements')" class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100" data-tab="complements">
+                    Complements
+                </button>
+                <button onclick="switchTab('subtraction')" class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100" data-tab="subtraction">
+                    Subtraction
+                </button>
+                <button onclick="switchTab('practice')" class="tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100" data-tab="practice">
+                    Practice
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab Contents -->
+        <div id="introduction" class="tab-content active">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold mb-4">What is a Number System?</h2>
+                    <p class="text-gray-600 mb-6">
+                        A number system is defined by its BASE and the digits it uses
+                    </p>
+                    <div class="grid gap-4 md:grid-cols-2">
+                        <div>
+                            <h3 class="font-semibold mb-2">Key Concepts:</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>• <strong>Base:</strong> Determines the number of unique digits</li>
+                                <li>• <strong>Digits:</strong> Number of digits equals the base (base itself not included)</li>
+                                <li>• <strong>Weights:</strong> Each position has a weight based on powers of the base</li>
+                                <li>• <strong>MSB/LSB:</strong> Most Significant Bit/Least Significant Bit</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Example: 7392 in Decimal</h3>
+                            <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm">
+                                <div>7×10³ + 3×10² + 9×10¹ + 2×10⁰</div>
+                                <div>= 7×1000 + 3×100 + 9×10 + 2×1</div>
+                                <div>= 7000 + 300 + 90 + 2</div>
+                                <div>= 7392</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+                            Decimal
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Base 10</span>
+                        </h3>
+                        <div class="space-y-2">
+                            <div><strong>Digits:</strong> 0-9</div>
+                            <div><strong>Example:</strong> <code>7392</code></div>
+                            <div class="text-sm text-gray-600">
+                                Everyday numbering system
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+                            Binary
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Base 2</span>
+                        </h3>
+                        <div class="space-y-2">
+                            <div><strong>Digits:</strong> 0-1</div>
+                            <div><strong>Example:</strong> <code>11010</code></div>
+                            <div class="text-sm text-gray-600">
+                                Used in computers
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+                            Octal
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Base 8</span>
+                        </h3>
+                        <div class="space-y-2">
+                            <div><strong>Digits:</strong> 0-7</div>
+                            <div><strong>Example:</strong> <code>1632</code></div>
+                            <div class="text-sm text-gray-600">
+                                Compact representation
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+                            Hexadecimal
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Base 16</span>
+                        </h3>
+                        <div class="space-y-2">
+                            <div><strong>Digits:</strong> 0-9,A-F</div>
+                            <div><strong>Example:</strong> <code>1CF0</code></div>
+                            <div class="text-sm text-gray-600">
+                                Memory addressing
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="conversion" class="tab-content">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold mb-4">Base Interconversion</h2>
+                    <p class="text-gray-600 mb-6">
+                        Convert numbers between different bases with step-by-step explanation
+                    </p>
+                    <div class="grid gap-4 md:grid-cols-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">From Base</label>
+                            <select id="fromBase" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option value="2">Binary (2)</option>
+                                <option value="8">Octal (8)</option>
+                                <option value="10" selected>Decimal (10)</option>
+                                <option value="16">Hexadecimal (16)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Input Number</label>
+                            <input type="text" id="inputValue" placeholder="Enter number" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">To Base</label>
+                            <select id="toBase" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option value="2" selected>Binary (2)</option>
+                                <option value="8">Octal (8)</option>
+                                <option value="10">Decimal (10)</option>
+                                <option value="16">Hexadecimal (16)</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="convertNumber()" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                                Convert
+                            </button>
+                        </div>
+                    </div>
+                    <div id="conversionResult" class="mt-4 hidden">
+                        <div class="bg-blue-50 border border-blue-200 rounded-md p-4">
+                            <div id="conversionResultText"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="conversionSteps" class="bg-white rounded-lg shadow-lg p-6 hidden">
+                    <h3 class="text-xl font-bold mb-4">Conversion Steps</h3>
+                    <div id="conversionStepsText" class="space-y-2 font-mono text-sm"></div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Quick Conversion Reference</h3>
+                    <div class="grid gap-4 md:grid-cols-2">
+                        <div>
+                            <h4 class="font-semibold mb-2">Binary ↔ Octal</h4>
+                            <div class="text-sm space-y-1">
+                                <div>• Group binary digits in sets of 3</div>
+                                <div>• 110 010 111₂ = 627₈</div>
+                                <div>• Convert each group directly</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Binary ↔ Hexadecimal</h4>
+                            <div class="text-sm space-y-1">
+                                <div>• Group binary digits in sets of 4</div>
+                                <div>• 1100 1011₂ = CB₁₆</div>
+                                <div>• Convert each group directly</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="arithmetic" class="tab-content">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold mb-4">Arithmetic Operations</h2>
+                    <p class="text-gray-600 mb-6">
+                        Perform arithmetic operations in different bases with visual step-by-step breakdown
+                    </p>
+                    <div class="grid gap-4 md:grid-cols-5">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Base</label>
+                            <select id="arithmeticBase" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option value="2" selected>Binary (2)</option>
+                                <option value="8">Octal (8)</option>
+                                <option value="10">Decimal (10)</option>
+                                <option value="16">Hexadecimal (16)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Operation</label>
+                            <select id="operation" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option value="addition" selected>Addition (+)</option>
+                                <option value="subtraction">Subtraction (-)</option>
+                                <option value="multiplication">Multiplication (×)</option>
+                                <option value="division">Division (÷)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">First Number</label>
+                            <input type="text" id="num1" placeholder="e.g., 1010" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Second Number</label>
+                            <input type="text" id="num2" placeholder="e.g., 1101" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="performOperation()" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                                Calculate
+                            </button>
+                        </div>
+                    </div>
+                    <div id="arithmeticResult" class="mt-4 hidden">
+                        <div class="bg-blue-50 border border-blue-200 rounded-md p-4">
+                            <div id="arithmeticResultText"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="arithmeticSteps" class="bg-white rounded-lg shadow-lg p-6 hidden">
+                    <h3 class="text-xl font-bold mb-4">Calculation Steps</h3>
+                    <div id="arithmeticStepsText" class="space-y-2 font-mono text-sm"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="complements" class="tab-content">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold mb-4">Complements in Number Systems</h2>
+                    <p class="text-gray-600 mb-6">
+                        Complements simplify subtraction operations in digital computers
+                    </p>
+                    <div class="grid gap-4 md:grid-cols-2">
+                        <div>
+                            <h3 class="font-semibold mb-2">Types of Complements:</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>• <strong>Radix (r's) complement:</strong> rⁿ - N</li>
+                                <li>• <strong>Diminished Radix ((r-1)'s) complement:</strong> rⁿ - N - 1</li>
+                            </ul>
+                            <div class="mt-4">
+                                <h4 class="font-semibold mb-2">Common Names:</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Binary: 2's and 1's complement</li>
+                                    <li>• Decimal: 10's and 9's complement</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Applications:</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>• Simplify subtraction operations</li>
+                                <li>• Represent negative numbers</li>
+                                <li>• Logical manipulations</li>
+                                <li>• Error detection and correction</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Complement Calculator</h3>
+                    <div class="grid gap-4 md:grid-cols-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Base</label>
+                            <select id="compBase" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option value="2">Binary (2)</option>
+                                <option value="8">Octal (8)</option>
+                                <option value="10" selected>Decimal (10)</option>
+                                <option value="16">Hexadecimal (16)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Number</label>
+                            <input type="text" id="compNumber" placeholder="Enter number" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                        </div>
+                        <div class="md:col-span-2 flex items-end">
+                            <button onclick="calculateComplements()" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                                Calculate Complements
+                            </button>
+                        </div>
+                    </div>
+                    <div id="complementResults" class="mt-4 hidden">
+                        <div class="grid gap-4 md:grid-cols-2">
+                            <div class="bg-green-50 border border-green-200 rounded-md p-4">
+                                <div class="font-semibold">(r-1)'s Complement:</div>
+                                <div id="rMinus1Result" class="font-mono text-lg"></div>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-200 rounded-md p-4">
+                                <div class="font-semibold">r's Complement:</div>
+                                <div id="rResult" class="font-mono text-lg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="complementSteps" class="bg-white rounded-lg shadow-lg p-6 hidden">
+                    <h3 class="text-xl font-bold mb-4">Calculation Steps</h3>
+                    <div id="complementStepsText" class="space-y-2 font-mono text-sm"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="subtraction" class="tab-content">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold mb-4">Subtraction Using Complements</h2>
+                    <p class="text-gray-600 mb-6">
+                        Practice subtraction using complement methods with step-by-step solutions
+                    </p>
+                    <div class="grid gap-4 md:grid-cols-5">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Method</label>
+                            <select id="subMethod" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option value="r-complement" selected>r's Complement</option>
+                                <option value="r-minus-1-complement">(r-1)'s Complement</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Base</label>
+                            <select id="subBase" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option value="2">Binary (2)</option>
+                                <option value="8">Octal (8)</option>
+                                <option value="10" selected>Decimal (10)</option>
+                                <option value="16">Hexadecimal (16)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Minuend (M)</label>
+                            <input type="text" id="minuend" placeholder="e.g., 72532" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Subtrahend (N)</label>
+                            <input type="text" id="subtrahend" placeholder="e.g., 03250" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="performSubtraction()" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                                Calculate
+                            </button>
+                        </div>
+                    </div>
+                    <div id="subtractionResult" class="mt-4 hidden">
+                        <div class="bg-blue-50 border border-blue-200 rounded-md p-4">
+                            <div id="subtractionResultText"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="subtractionSteps" class="bg-white rounded-lg shadow-lg p-6 hidden">
+                    <h3 class="text-xl font-bold mb-4">Step-by-Step Solution</h3>
+                    <div id="subtractionStepsText" class="space-y-2 font-mono text-sm"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="practice" class="tab-content">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold mb-4">Practice Exercises</h2>
+                    <p class="text-gray-600 mb-6">
+                        Test your understanding with interactive practice problems
+                    </p>
+                    
+                    <!-- Practice Options -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h3 class="font-semibold mb-3">Practice Options</h3>
+                        <div class="grid gap-4 md:grid-cols-2">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Select Base</label>
+                                <select id="practiceBase" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                    <option value="2">Binary (Base 2)</option>
+                                    <option value="8">Octal (Base 8)</option>
+                                    <option value="10">Decimal (Base 10)</option>
+                                    <option value="16">Hexadecimal (Base 16)</option>
+                                    <option value="random">Random Base</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Arithmetic Operations (for Arithmetic Practice)</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="opAddition" checked class="mr-2">
+                                        <span>Addition (+)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="opSubtraction" checked class="mr-2">
+                                        <span>Subtraction (-)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="opMultiplication" checked class="mr-2">
+                                        <span>Multiplication (×)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="opDivision" class="mr-2">
+                                        <span>Division (÷)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid gap-4 md:grid-cols-3">
+                        <button onclick="generateProblem('conversion')" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                            Base Conversion
+                        </button>
+                        <button onclick="generateProblem('arithmetic')" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
+                            Arithmetic Operations
+                        </button>
+                        <button onclick="generateProblem('complements')" class="bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-600">
+                            Complements
+                        </button>
+                    </div>
+                </div>
+
+                <div id="practiceProblem" class="bg-white rounded-lg shadow-lg p-6 hidden">
+                    <h3 class="text-xl font-bold mb-4">Practice Problem</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <div id="problemText" class="text-lg font-semibold"></div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Your Answer:</label>
+                            <input type="text" id="userAnswer" placeholder="Enter your answer" oninput="enableCheckAnswer()" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                        </div>
+                        <div class="flex gap-4">
+                            <button id="checkAnswerBtn" onclick="checkAnswer()" disabled class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 disabled:bg-gray-300">
+                                Check Answer
+                            </button>
+                            <button onclick="generateProblem(currentProblem.type)" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+                                New Problem
+                            </button>
+                        </div>
+                        <div id="practiceFeedback" class="hidden">
+                            <div id="feedbackBox" class="border rounded-md p-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update tab button styles
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                if (btn.getAttribute('data-tab') === tabName) {
+                    btn.className = 'tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors bg-blue-500 text-white';
+                } else {
+                    btn.className = 'tab-btn px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100';
+                }
+            });
+        }
+
+        function convertNumber() {
+            const fromBase = parseInt(document.getElementById('fromBase').value);
+            const toBase = parseInt(document.getElementById('toBase').value);
+            const inputValue = document.getElementById('inputValue').value;
+            
+            if (!inputValue) return;
+            
+            // Convert to decimal first
+            const decimalValue = parseInt(inputValue, fromBase);
+            
+            if (isNaN(decimalValue)) {
+                showConversionResult('Invalid input for selected base', []);
+                return;
+            }
+            
+            const conversionSteps = [];
+            conversionSteps.push(`Step 1: Convert ${inputValue} (base ${fromBase}) to decimal`);
+            conversionSteps.push(`${inputValue}₍${fromBase}₎ = ${decimalValue}₁₀`);
+            
+            let result;
+            if (toBase !== 10) {
+                let temp = decimalValue;
+                const resultDigits = [];
+                conversionSteps.push(`Step 2: Convert ${decimalValue}₁₀ to base ${toBase}`);
+                conversionSteps.push('Using repeated division:');
+                
+                while (temp > 0) {
+                    const remainder = temp % toBase;
+                    resultDigits.unshift(remainder.toString(toBase).toUpperCase());
+                    conversionSteps.push(`${temp} ÷ ${toBase} = ${Math.floor(temp / toBase)} remainder ${remainder}`);
+                    temp = Math.floor(temp / toBase);
+                }
+                
+                result = resultDigits.join('') || '0';
+                conversionSteps.push(`Result: ${result}₍${toBase}₎`);
+            } else {
+                result = decimalValue.toString();
+            }
+            
+            showConversionResult(`${inputValue}₍${fromBase}₎ = ${result}₍${toBase}₎`, conversionSteps);
+        }
+
+        function showConversionResult(resultText, steps) {
+            const resultDiv = document.getElementById('conversionResult');
+            const resultTextDiv = document.getElementById('conversionResultText');
+            const stepsDiv = document.getElementById('conversionSteps');
+            const stepsTextDiv = document.getElementById('conversionStepsText');
+            
+            resultTextDiv.innerHTML = `<strong>Result:</strong> ${resultText}`;
+            resultDiv.classList.remove('hidden');
+            
+            if (steps.length > 0) {
+                stepsTextDiv.innerHTML = steps.map(step => `<div>${step}</div>`).join('');
+                stepsDiv.classList.remove('hidden');
+            }
+        }
+
+        function performOperation() {
+            const base = parseInt(document.getElementById('arithmeticBase').value);
+            const operation = document.getElementById('operation').value;
+            const num1 = document.getElementById('num1').value;
+            const num2 = document.getElementById('num2').value;
+            
+            if (!num1 || !num2) return;
+            
+            const n1 = parseInt(num1, base);
+            const n2 = parseInt(num2, base);
+            
+            if (isNaN(n1) || isNaN(n2)) {
+                showArithmeticResult('Invalid input for selected base', []);
+                return;
+            }
+            
+            const operationSteps = [];
+            let calcResult = 0;
+            
+            switch (operation) {
+                case 'addition':
+                    calcResult = n1 + n2;
+                    operationSteps.push(`${base === 2 ? 'Binary' : base === 8 ? 'Octal' : base === 10 ? 'Decimal' : 'Hexadecimal'} Addition: ${num1} + ${num2}`);
+                    operationSteps.push('Step-by-step addition:');
+                    
+                    // Simulate addition
+                    let carry = 0;
+                    let sumStr = '';
+                    const maxLen = Math.max(num1.length, num2.length);
+                    
+                    for (let i = 0; i < maxLen; i++) {
+                        const digit1 = parseInt(num1[num1.length - 1 - i] || '0', base);
+                        const digit2 = parseInt(num2[num2.length - 1 - i] || '0', base);
+                        const total = digit1 + digit2 + carry;
+                        const sumDigit = total % base;
+                        carry = Math.floor(total / base);
+                        sumStr = sumDigit.toString(base).toUpperCase() + sumStr;
+                        
+                        operationSteps.push(`  ${digit1} + ${digit2} + carry${carry > 0 ? '(' + carry + ')' : ''} = ${total} (write ${sumDigit}, carry ${carry})`);
+                    }
+                    
+                    if (carry > 0) {
+                        sumStr = carry.toString(base).toUpperCase() + sumStr;
+                        operationSteps.push(`  Final carry: ${carry}`);
+                    }
+                    
+                    operationSteps.push(`Result: ${sumStr}`);
+                    break;
+                    
+                case 'subtraction':
+                    calcResult = n1 - n2;
+                    operationSteps.push(`${base === 2 ? 'Binary' : base === 8 ? 'Octal' : base === 10 ? 'Decimal' : 'Hexadecimal'} Subtraction: ${num1} - ${num2}`);
+                    operationSteps.push('Using direct subtraction:');
+                    
+                    // Simple subtraction simulation
+                    const diff = n1 - n2;
+                    operationSteps.push(`Convert to decimal: ${n1} - ${n2} = ${diff}`);
+                    operationSteps.push(`Convert back to base ${base}: ${diff.toString(base).toUpperCase()}`);
+                    break;
+                    
+                case 'multiplication':
+                    calcResult = n1 * n2;
+                    operationSteps.push(`${base === 2 ? 'Binary' : base === 8 ? 'Octal' : base === 10 ? 'Decimal' : 'Hexadecimal'} Multiplication: ${num1} × ${num2}`);
+                    operationSteps.push('Similar to decimal multiplication:');
+                    operationSteps.push(`${n1} × ${n2} = ${calcResult}`);
+                    operationSteps.push(`Result: ${calcResult.toString(base).toUpperCase()}`);
+                    break;
+                    
+                case 'division':
+                    if (n2 === 0) {
+                        showArithmeticResult('Division by zero', []);
+                        return;
+                    }
+                    calcResult = Math.floor(n1 / n2);
+                    const remainder = n1 % n2;
+                    operationSteps.push(`${base === 2 ? 'Binary' : base === 8 ? 'Octal' : base === 10 ? 'Decimal' : 'Hexadecimal'} Division: ${num1} ÷ ${num2}`);
+                    operationSteps.push(`${n1} ÷ ${n2} = ${calcResult} remainder ${remainder}`);
+                    operationSteps.push(`Result: ${calcResult.toString(base).toUpperCase()}`);
+                    if (remainder > 0) {
+                        operationSteps.push(`Remainder: ${remainder.toString(base).toUpperCase()}`);
+                    }
+                    break;
+            }
+            
+            const opSymbol = operation === 'addition' ? '+' : operation === 'subtraction' ? '-' : operation === 'multiplication' ? '×' : '÷';
+            showArithmeticResult(`${num1} ${opSymbol} ${num2} = ${calcResult.toString(base).toUpperCase()}`, operationSteps);
+        }
+
+        function showArithmeticResult(resultText, steps) {
+            const resultDiv = document.getElementById('arithmeticResult');
+            const resultTextDiv = document.getElementById('arithmeticResultText');
+            const stepsDiv = document.getElementById('arithmeticSteps');
+            const stepsTextDiv = document.getElementById('arithmeticStepsText');
+            
+            resultTextDiv.innerHTML = `<strong>Result:</strong> ${resultText}`;
+            resultDiv.classList.remove('hidden');
+            
+            if (steps.length > 0) {
+                stepsTextDiv.innerHTML = steps.map(step => `<div>${step}</div>`).join('');
+                stepsDiv.classList.remove('hidden');
+            }
+        }
+
+        function calculateComplements() {
+            const base = parseInt(document.getElementById('compBase').value);
+            const number = document.getElementById('compNumber').value;
+            
+            if (!number) return;
+            
+            const num = parseInt(number, base);
+            
+            if (isNaN(num)) {
+                showComplementResults('Invalid input', 'Invalid input', []);
+                return;
+            }
+            
+            const calculationSteps = [];
+            
+            // Calculate (r-1)'s complement
+            const rMinus1Comp = (base ** number.length - 1 - num).toString(base).toUpperCase();
+            
+            calculationSteps.push(`Number: ${number} (base ${base})`);
+            calculationSteps.push(`Decimal value: ${num}`);
+            calculationSteps.push('');
+            calculationSteps.push(`${base-1}'s Complement:`);
+            calculationSteps.push(`Formula: rⁿ - 1 - N`);
+            calculationSteps.push(`Where r = ${base}, n = ${number.length}, N = ${num}`);
+            calculationSteps.push(`${base}^${number.length} - 1 - ${num} = ${base ** number.length - 1 - num}`);
+            calculationSteps.push(`Result: ${rMinus1Comp}`);
+            
+            // Calculate r's complement
+            const rComp = (base ** number.length - num).toString(base).toUpperCase();
+            
+            calculationSteps.push('');
+            calculationSteps.push(`${base}'s Complement:`);
+            calculationSteps.push(`Formula: rⁿ - N`);
+            calculationSteps.push(`Where r = ${base}, n = ${number.length}, N = ${num}`);
+            calculationSteps.push(`${base}^${number.length} - ${num} = ${base ** number.length - num}`);
+            calculationSteps.push(`Result: ${rComp}`);
+            calculationSteps.push('');
+            calculationSteps.push(`Alternative: ${base}'s complement = ${base-1}'s complement + 1`);
+            calculationSteps.push(`${rMinus1Comp} + 1 = ${rComp}`);
+            
+            showComplementResults(rMinus1Comp, rComp, calculationSteps);
+        }
+
+        function showComplementResults(rMinus1Comp, rComp, steps) {
+            const resultsDiv = document.getElementById('complementResults');
+            const rMinus1Div = document.getElementById('rMinus1Result');
+            const rDiv = document.getElementById('rResult');
+            const stepsDiv = document.getElementById('complementSteps');
+            const stepsTextDiv = document.getElementById('complementStepsText');
+            const base = parseInt(document.getElementById('compBase').value);
+            
+            rMinus1Div.textContent = rMinus1Comp;
+            rDiv.textContent = rComp;
+            resultsDiv.classList.remove('hidden');
+            
+            if (steps.length > 0) {
+                stepsTextDiv.innerHTML = steps.map(step => `<div>${step}</div>`).join('');
+                stepsDiv.classList.remove('hidden');
+            }
+        }
+
+        function performSubtraction() {
+            const method = document.getElementById('subMethod').value;
+            const base = parseInt(document.getElementById('subBase').value);
+            const minuend = document.getElementById('minuend').value;
+            const subtrahend = document.getElementById('subtrahend').value;
+            
+            if (!minuend || !subtrahend) return;
+            
+            const m = parseInt(minuend, base);
+            const s = parseInt(subtrahend, base);
+            
+            if (isNaN(m) || isNaN(s)) {
+                showSubtractionResult('Invalid input', []);
+                return;
+            }
+            
+            const calculationSteps = [];
+            
+            // Ensure both numbers have same number of digits
+            const maxLen = Math.max(minuend.length, subtrahend.length);
+            const paddedMinuend = minuend.padStart(maxLen, '0');
+            const paddedSubtrahend = subtrahend.padStart(maxLen, '0');
+            
+            calculationSteps.push(`Subtraction: ${paddedMinuend} - ${paddedSubtrahend} (base ${base})`);
+            calculationSteps.push(`M = ${paddedMinuend} = ${m}₁₀`);
+            calculationSteps.push(`N = ${paddedSubtrahend} = ${s}₁₀`);
+            
+            let result;
+            
+            if (method === 'r-complement') {
+                calculationSteps.push('');
+                calculationSteps.push(`Using ${base}'s complement method:`);
+                calculationSteps.push('Step 1: Take r\'s complement of N');
+                
+                const rComplement = (base ** maxLen - s).toString(base).toUpperCase();
+                calculationSteps.push(`${base}'s complement of N = ${rComplement}`);
+                
+                calculationSteps.push('Step 2: Add M + (r\'s complement of N)');
+                const sum = m + (base ** maxLen - s);
+                const sumStr = sum.toString(base).toUpperCase();
+                calculationSteps.push(`${m} + ${base ** maxLen - s} = ${sum}`);
+                calculationSteps.push(`Result: ${sumStr}`);
+                
+                if (sum >= base ** maxLen) {
+                    // M >= N case
+                    const finalResult = sum - base ** maxLen;
+                    calculationSteps.push('Step 3: Discard end carry (M >= N)');
+                    calculationSteps.push(`Final result: ${finalResult.toString(base).toUpperCase()}`);
+                    result = finalResult.toString(base).toUpperCase();
+                } else {
+                    // M < N case
+                    calculationSteps.push('Step 3: No end carry (M < N)');
+                    calculationSteps.push('Step 4: Take r\'s complement of result and add negative sign');
+                    const finalResult = (base ** maxLen - sum).toString(base).toUpperCase();
+                    calculationSteps.push(`${base}'s complement of ${sumStr} = ${finalResult}`);
+                    calculationSteps.push(`Final result: -${finalResult}`);
+                    result = `-${finalResult}`;
+                }
+            } else {
+                // (r-1)'s complement method
+                calculationSteps.push('');
+                calculationSteps.push(`Using ${base-1}'s complement method:`);
+                calculationSteps.push('Step 1: Take (r-1)\'s complement of N');
+                
+                const rMinus1Complement = (base ** maxLen - 1 - s).toString(base).toUpperCase();
+                calculationSteps.push(`${base-1}'s complement of N = ${rMinus1Complement}`);
+                
+                calculationSteps.push('Step 2: Add M + ((r-1)\'s complement of N)');
+                const sum = m + (base ** maxLen - 1 - s);
+                const sumStr = sum.toString(base).toUpperCase();
+                calculationSteps.push(`${m} + ${base ** maxLen - 1 - s} = ${sum}`);
+                calculationSteps.push(`Result: ${sumStr}`);
+                
+                if (sum >= base ** maxLen - 1) {
+                    // M >= N case
+                    calculationSteps.push('Step 3: Add end carry (M >= N)');
+                    const finalResult = sum - (base ** maxLen - 1);
+                    calculationSteps.push(`${sum} + 1 = ${sum + 1}`);
+                    calculationSteps.push(`Final result: ${finalResult.toString(base).toUpperCase()}`);
+                    result = finalResult.toString(base).toUpperCase();
+                } else {
+                    // M < N case
+                    calculationSteps.push('Step 3: No end carry (M < N)');
+                    calculationSteps.push('Step 4: Take (r-1)\'s complement of result and add negative sign');
+                    const finalResult = (base ** maxLen - 1 - sum).toString(base).toUpperCase();
+                    calculationSteps.push(`${base-1}'s complement of ${sumStr} = ${finalResult}`);
+                    calculationSteps.push(`Final result: -${finalResult}`);
+                    result = `-${finalResult}`;
+                }
+            }
+            
+            showSubtractionResult(`${paddedMinuend} - ${paddedSubtrahend} = ${result}`, calculationSteps);
+        }
+
+        function showSubtractionResult(resultText, steps) {
+            const resultDiv = document.getElementById('subtractionResult');
+            const resultTextDiv = document.getElementById('subtractionResultText');
+            const stepsDiv = document.getElementById('subtractionSteps');
+            const stepsTextDiv = document.getElementById('subtractionStepsText');
+            
+            resultTextDiv.innerHTML = `<strong>Result:</strong> ${resultText}`;
+            resultDiv.classList.remove('hidden');
+            
+            if (steps.length > 0) {
+                stepsTextDiv.innerHTML = steps.map(step => `<div>${step}</div>`).join('');
+                stepsDiv.classList.remove('hidden');
+            }
+        }
+
+        let currentProblem = null;
+
+        function generateProblem(type) {
+            // Get selected options
+            const baseOption = document.getElementById('practiceBase').value;
+            const opAddition = document.getElementById('opAddition').checked;
+            const opSubtraction = document.getElementById('opSubtraction').checked;
+            const opMultiplication = document.getElementById('opMultiplication').checked;
+            const opDivision = document.getElementById('opDivision').checked;
+            
+            // Determine base to use
+            let selectedBase;
+            if (baseOption === 'random') {
+                const bases = [2, 8, 10, 16];
+                selectedBase = bases[Math.floor(Math.random() * bases.length)];
+            } else {
+                selectedBase = parseInt(baseOption);
+            }
+            
+            let problem = {};
+            
+            switch (type) {
+                case 'conversion':
+                    let fromBase, toBase;
+                    if (baseOption === 'random') {
+                        fromBase = [2, 8, 10, 16][Math.floor(Math.random() * 4)];
+                        toBase = [2, 8, 10, 16][Math.floor(Math.random() * 4)];
+                        while (toBase === fromBase) {
+                            toBase = [2, 8, 10, 16][Math.floor(Math.random() * 4)];
+                        }
+                    } else {
+                        fromBase = selectedBase;
+                        const otherBases = [2, 8, 10, 16].filter(b => b !== fromBase);
+                        toBase = otherBases[Math.floor(Math.random() * otherBases.length)];
+                    }
+                    
+                    let num, answer;
+                    if (fromBase === 10) {
+                        num = Math.floor(Math.random() * 100) + 1;
+                        answer = num.toString(toBase).toUpperCase();
+                    } else {
+                        const maxNum = Math.min(50, fromBase ** 3 - 1);
+                        num = Math.floor(Math.random() * maxNum).toString(fromBase);
+                        const decimal = parseInt(num, fromBase);
+                        answer = decimal.toString(toBase).toUpperCase();
+                    }
+                    
+                    problem = {
+                        question: `Convert ${num} from base ${fromBase} to base ${toBase}`,
+                        answer: answer,
+                        type: 'conversion'
+                    };
+                    break;
+                    
+                case 'arithmetic':
+                    // Get available operations
+                    const availableOps = [];
+                    if (opAddition) availableOps.push('+');
+                    if (opSubtraction) availableOps.push('-');
+                    if (opMultiplication) availableOps.push('×');
+                    if (opDivision) availableOps.push('÷');
+                    
+                    if (availableOps.length === 0) {
+                        alert('Please select at least one arithmetic operation!');
+                        return;
+                    }
+                    
+                    const op = availableOps[Math.floor(Math.random() * availableOps.length)];
+                    let n1, n2, calcAnswer;
+                    
+                    // Generate numbers based on selected base
+                    const maxNum = selectedBase === 2 ? 15 : selectedBase === 8 ? 63 : selectedBase === 10 ? 99 : 255;
+                    
+                    if (op === '÷') {
+                        n2 = Math.floor(Math.random() * 8) + 1; // Avoid division by zero and keep it simple
+                        n1 = n2 * (Math.floor(Math.random() * 8) + 1); // Ensure clean division
+                    } else if (op === '-') {
+                        n1 = Math.floor(Math.random() * maxNum) + 1;
+                        n2 = Math.floor(Math.random() * n1) + 1; // Ensure positive result
+                    } else {
+                        n1 = Math.floor(Math.random() * maxNum) + 1;
+                        n2 = Math.floor(Math.random() * maxNum) + 1;
+                    }
+                    
+                    let num1 = n1.toString(selectedBase).toUpperCase();
+                    let num2 = n2.toString(selectedBase).toUpperCase();
+                    
+                    switch (op) {
+                        case '+':
+                            calcAnswer = (n1 + n2).toString(selectedBase).toUpperCase();
+                            break;
+                        case '-':
+                            calcAnswer = (n1 - n2).toString(selectedBase).toUpperCase();
+                            break;
+                        case '×':
+                            calcAnswer = (n1 * n2).toString(selectedBase).toUpperCase();
+                            break;
+                        case '÷':
+                            const quotient = Math.floor(n1 / n2);
+                            const remainder = n1 % n2;
+                            calcAnswer = quotient.toString(selectedBase).toUpperCase();
+                            if (remainder > 0) {
+                                calcAnswer += ' R' + remainder.toString(selectedBase).toUpperCase();
+                            }
+                            break;
+                    }
+                    
+                    const baseName = selectedBase === 2 ? 'Binary' : selectedBase === 8 ? 'Octal' : selectedBase === 10 ? 'Decimal' : 'Hexadecimal';
+                    problem = {
+                        question: `Calculate: ${num1} ${op} ${num2} (${baseName.toLowerCase()})`,
+                        answer: calcAnswer,
+                        type: 'arithmetic'
+                    };
+                    break;
+                    
+                case 'complements':
+                    let compNum, compAnswer;
+                    const maxCompNum = selectedBase === 2 ? 15 : selectedBase === 8 ? 63 : selectedBase === 10 ? 99 : 255;
+                    compNum = Math.floor(Math.random() * maxCompNum) + 1;
+                    const compType = Math.random() > 0.5 ? '1s' : '2s';
+                    const numStr = compNum.toString(selectedBase).toUpperCase();
+                    const digitCount = selectedBase === 2 ? 4 : selectedBase === 8 ? 2 : selectedBase === 10 ? 2 : 2;
+                    
+                    if (compType === '1s') {
+                        const maxValue = selectedBase ** digitCount - 1;
+                        compAnswer = (maxValue - compNum).toString(selectedBase).toUpperCase().padStart(digitCount, '0');
+                        const compTypeName = selectedBase === 2 ? "1's" : selectedBase === 10 ? "9's" : `${selectedBase-1}'s`;
+                        problem = {
+                            question: `Find the ${compTypeName} complement of ${numStr.padStart(digitCount, '0')} (base ${selectedBase})`,
+                            answer: compAnswer,
+                            type: 'complements'
+                        };
+                    } else {
+                        const maxValue = selectedBase ** digitCount;
+                        compAnswer = (maxValue - compNum).toString(selectedBase).toUpperCase().padStart(digitCount, '0');
+                        const compTypeName = selectedBase === 2 ? "2's" : selectedBase === 10 ? "10's" : `${selectedBase}'s`;
+                        problem = {
+                            question: `Find the ${compTypeName} complement of ${numStr.padStart(digitCount, '0')} (base ${selectedBase})`,
+                            answer: compAnswer,
+                            type: 'complements'
+                        };
+                    }
+                    break;
+            }
+            
+            currentProblem = problem;
+            document.getElementById('problemText').textContent = problem.question;
+            document.getElementById('userAnswer').value = '';
+            document.getElementById('practiceFeedback').classList.add('hidden');
+            document.getElementById('practiceProblem').classList.remove('hidden');
+            document.getElementById('checkAnswerBtn').disabled = true;
+        }
+
+        function enableCheckAnswer() {
+            const userAnswer = document.getElementById('userAnswer').value;
+            document.getElementById('checkAnswerBtn').disabled = !userAnswer;
+        }
+
+        function checkAnswer() {
+            if (!currentProblem || !document.getElementById('userAnswer').value) return;
+            
+            const userAnswer = document.getElementById('userAnswer').value.trim();
+            const correct = userAnswer.toLowerCase() === currentProblem.answer.toLowerCase();
+            const feedbackDiv = document.getElementById('practiceFeedback');
+            const feedbackBox = document.getElementById('feedbackBox');
+            
+            feedbackDiv.classList.remove('hidden');
+            
+            if (correct) {
+                feedbackBox.className = 'border-green-500 bg-green-50 text-green-700 rounded-md p-4';
+                feedbackBox.textContent = 'Correct! Well done!';
+            } else {
+                feedbackBox.className = 'border-red-500 bg-red-50 text-red-700 rounded-md p-4';
+                feedbackBox.textContent = `Incorrect. The correct answer is: ${currentProblem.answer}`;
+            }
+        }
+    </script>
+    
+    <!-- Gift from Umais Adeed -->
+    <div class="fixed bottom-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-xs">
+        <div class="text-center">
+            <div class="text-sm text-gray-600 mb-2">A gift from Umais Adeed</div>
+            <div class="space-y-2">
+                <a href="https://github.com/Umais-Adeed" target="_blank" class="flex items-center justify-center gap-2 text-blue-600 hover:text-blue-800 text-sm">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    Follow me on GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/umais-adeed-34b46435a" target="_blank" class="flex items-center justify-center gap-2 text-blue-600 hover:text-blue-800 text-sm">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
